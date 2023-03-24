@@ -25,15 +25,26 @@ function App() {
       })
     }
 
+    // here is my put axios
+    const updateLikes = (id) => {
+      console.log('inside like button')
+      axios.put(`/gallery/like/${id}`)
+      .then((response) => {
+        console.log('PUT response', response)
+        getGallery()
+      }).catch((error) => {
+        console.log('error in PUT', error)
+      })
+    }
+
+
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
         <p>Gallery goes here</p>
-        <RenderGalleryList GalleryItems={newGalleryImage}/>
-        <button>Like</button>
-        {/* here i will input the put request header to show how many likes. */}
+        <RenderGalleryList GalleryItems={newGalleryImage} UpdatingLikeCount={updateLikes}/>
       </div>
     );
 }

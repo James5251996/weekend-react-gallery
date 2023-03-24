@@ -1,27 +1,22 @@
 import { useState } from "react";
+import ImageDetails from "../ImageDetails/ImageDetails";
 
-function RenderGalleryList ({GalleryItems}) {
+function RenderGalleryList({ GalleryItems, UpdatingLikeCount }) {
     // here is my function to toggel between picture and description. 
-    const [description, setDescription] = useState(true)
-    const toggleImage = () => {
-        setDescription(!description)
-    }
+    
+
 
 
     console.log(GalleryItems)
     return (<>
-        {description ? (
-    <div>
-        {GalleryItems.map(image => (
-            <img onClick={toggleImage} src={image.path} key ={image.id}></img>))}
-    </div>) : 
         <div>
             {GalleryItems.map(image => (
-                <p onClick={toggleImage} key ={image.id}>{image.description}</p>
-            ))}
-        </div>
-    }
-    </> )
+                <ImageDetails key={image.id} image={image} likesCountUpdate={UpdatingLikeCount}/>
+                // here is the likes stuff
+
+            ))}  </div>
+        
+    </>)
 }
 
 export default RenderGalleryList;
