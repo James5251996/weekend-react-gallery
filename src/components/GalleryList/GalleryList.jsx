@@ -9,7 +9,7 @@ function RenderGalleryList({ GalleryItems, UpdatingLikeCount }) {
 
     console.log(GalleryItems)
     return (<>
-        <div>
+        <div id="imageRender">
             {GalleryItems.map(image => (
                 <ImageDetails key={image.id} image={image} likesCountUpdate={UpdatingLikeCount}/>
                 // here is the likes stuff
