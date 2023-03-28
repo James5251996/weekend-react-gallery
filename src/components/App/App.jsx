@@ -2,6 +2,7 @@ import { useState, useEffect} from 'react';
 import axios from 'axios';
 import './App.css';
 import RenderGalleryList from '../GalleryList/GalleryList'
+import InputAnimal from '../InputAnimal/InputAnimal';
 
 
 function App() {
@@ -50,11 +51,15 @@ function App() {
     }
 
 
+    // here is my post request that will be a prop to a new component.
+
+
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Gallery of My Favorite Animals</h1>
         </header>
+        <InputAnimal/>
         <p>Gallery goes here</p>
         <div className='gallery'>
         <RenderGalleryList GalleryItems={newGalleryImage} UpdatingLikeCount={updateLikes} GetID={setID} DeletePost={DeletePost}/>
