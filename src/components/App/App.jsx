@@ -8,6 +8,7 @@ function App() {
 
   // stting my state
   let [newGalleryImage, setNewGalleryImage] = useState([])
+  let [ID, setID] = useState('');
 
   //  on lood calls the get function
     useEffect(() => {
@@ -26,14 +27,25 @@ function App() {
     }
 
     // here is my put axios
-    const updateLikes = (id) => {
+    const updateLikes = (ID) => {
       console.log('inside like button')
-      axios.put(`/gallery/like/${id}`)
+      axios.put(`/gallery/like/${ID}`)
       .then((response) => {
         console.log('PUT response', response)
         getGallery()
       }).catch((error) => {
         console.log('error in PUT', error)
+      })
+    }
+
+
+    const DeletePost = (ID) => {
+      console.log('inside Delete Request')
+      axios.delete(`/gallery/${ID}`)
+      .then((response) => {
+        getGallery();
+      }).catch((error) => {
+        console.log('error in delete', error)
       })
     }
 
@@ -45,7 +57,7 @@ function App() {
         </header>
         <p>Gallery goes here</p>
         <div className='gallery'>
-        <RenderGalleryList GalleryItems={newGalleryImage} UpdatingLikeCount={updateLikes}/>
+        <RenderGalleryList GalleryItems={newGalleryImage} UpdatingLikeCount={updateLikes} GetID={setID} DeletePost={DeletePost}/>
         </div>
       </div>
     );

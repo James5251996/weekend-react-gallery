@@ -5,6 +5,23 @@ const pool = require('../modules/pool');
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
+router.delete('/:id', (req, res) => {
+    const galleryID = req.params.id;
+    const queryText = `DELETE FROM "galleryitems" WHERE id=$1`
+
+    pool.query(queryText, [galleryID])
+    .then((results) => {
+        res.sendStatus(200)
+    }).catch((error) => {
+        console.log('error in Delete', error)
+        res.sendStatus(500)
+    })
+
+})
+
+
+
+
 // PUT Route
 router.put('/like/:id', (req, res) => {
     console.log(req.params);

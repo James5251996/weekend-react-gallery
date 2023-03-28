@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function ImageDetails({image, likesCountUpdate}) {
+function ImageDetails({image, likesCountUpdate, GetID, DeletePost}) {
 
     const [showDescription, setShowDescription] = useState(false)
     let toggleImage = () => {
@@ -9,6 +9,11 @@ function ImageDetails({image, likesCountUpdate}) {
 
     const updateLike = () => {
         likesCountUpdate(image.id)
+        GetID(image.id)
+    }
+
+    const clickDeletePost = () => {
+        DeletePost(image.id);
     }
 
 
@@ -24,6 +29,7 @@ function ImageDetails({image, likesCountUpdate}) {
         <div className="Button">
         <button onClick={updateLike}>Like</button>
          <p>{image.likes} likes by people</p>
+         <button onClick={clickDeletePost}>Delete Post</button>
         </div>
         </div>
     </>)
