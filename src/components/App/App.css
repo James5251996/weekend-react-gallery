@@ -13,20 +13,31 @@
   font-size: 1.5em;
 }
 
+.gallery {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 
 #imageRender {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: wrap;
+  padding: 10px;
+  display: flex
 }
 
 .singleImage {
   display: flex;
-  border: 5px solid lightblue;
+  flex-direction: column;
+  border: 5px solid yellow;
   height: 200px;
   width: 200px;
-  border-radius: 5px;
-  padding: 10px;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.Button {
+  margin-top: 10px;
 }
 
 img {

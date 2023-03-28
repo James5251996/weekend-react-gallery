@@ -13,6 +13,7 @@ function ImageDetails({image, likesCountUpdate}) {
 
 
     return (<> <div className="singleImage">
+        <div className="oneImage">
         {showDescription ?
         <p onClick={toggleImage} key={image.id}>{image.description}</p>
         :
@@ -20,11 +21,11 @@ function ImageDetails({image, likesCountUpdate}) {
         
         }
         </div> 
-        <div>
+        <div className="Button">
         <button onClick={updateLike}>Like</button>
          <p>{image.likes} likes by people</p>
         </div>
-
+        </div>
     </>)
 }
 

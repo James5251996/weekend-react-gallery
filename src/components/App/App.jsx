@@ -44,7 +44,9 @@ function App() {
           <h1 className="App-title">Gallery of My Favorite Animals</h1>
         </header>
         <p>Gallery goes here</p>
+        <div className='gallery'>
         <RenderGalleryList GalleryItems={newGalleryImage} UpdatingLikeCount={updateLikes}/>
+        </div>
       </div>
     );
 }
