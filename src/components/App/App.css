@@ -13,6 +13,7 @@
   font-size: 1.5em;
 }
 
+
 #imageRender {
   display: flex;
   justify-content: space-between;
@@ -24,6 +25,8 @@
   border: 5px solid lightblue;
   height: 200px;
   width: 200px;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 img {
@@ -31,6 +34,4 @@ img {
   width: 200px;
 }
 
-body {
-  background-color: lavender;
-}
+
