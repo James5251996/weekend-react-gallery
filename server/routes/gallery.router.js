@@ -19,6 +19,23 @@ router.delete('/:id', (req, res) => {
 
 })
 
+router.post('/', (req, res) => {
+    const newGalleryImage = req.body
+    const queryText = `INSERT INTO "galleryitems" ("path", "description", "likes")
+    VALUES ($1, $2, $3);`;
+
+    pool.query(queryText, [newGalleryImage.path, newGalleryImage.description, newGalleryImage.likes])
+    .then((results) => {
+        res.sendStatus(200);
+        console.log('POST WORKED')
+    }).catch((error) => {
+        console.log('error in post', error)
+        res.sendStatus(500);
+    })
+
+
+})
+
 
 
 

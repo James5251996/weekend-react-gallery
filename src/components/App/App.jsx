@@ -52,6 +52,15 @@ function App() {
 
 
     // here is my post request that will be a prop to a new component.
+    const AddPost = (newAnimal) => {
+      console.log('inside Post Request', newAnimal)
+      axios.post('/gallery')
+      .then((response) => {
+        getGallery();
+      }).catch((error) => {
+        console.log('error in client POST')
+      })
+    }
 
 
     return (
@@ -59,7 +68,7 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">Gallery of My Favorite Animals</h1>
         </header>
-        <InputAnimal/>
+        <InputAnimal addAnimal={AddPost}/>
         <p>Gallery goes here</p>
         <div className='gallery'>
         <RenderGalleryList GalleryItems={newGalleryImage} UpdatingLikeCount={updateLikes} GetID={setID} DeletePost={DeletePost}/>
